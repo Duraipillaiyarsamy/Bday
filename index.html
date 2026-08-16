@@ -100,18 +100,20 @@
 }
 
     /* Bottom Left - Childhood Pic (Polaroid Style) */
-    .left-child-photo {
-      bottom: 40px;
-      left: 40px;
-      width: 160px;
-      transform: rotate(-12deg);
-      background: #fff;
-      padding: 8px 8px 25px 8px; /* Polaroid border */
-      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-      border-radius: 4px;
-      opacity: 0.85;
-      transition: transform 0.4s ease;
-    }
+.left-child-photo {
+  position: absolute; /* Restores absolute positioning to bottom-left */
+  bottom: 40px;
+  left: 40px;
+  width: 160px;
+  transform: rotate(-12deg);
+  background: #fff;
+  padding: 8px 8px 25px 8px; /* Polaroid border */
+  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+  border-radius: 4px;
+  opacity: 0.85;
+  transition: transform 0.4s ease;
+  z-index: 2; /* Keeps the polaroid layered above the background fade */
+}
     .left-child-photo img {
       width: 100%;
       height: auto;
