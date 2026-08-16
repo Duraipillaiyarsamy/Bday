@@ -74,46 +74,46 @@
       position: relative;
     }
 
-   /* Container for background photo cover */
-.hero-photo.right-bg-photo {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  max-width: none;
-  z-index: 0;
-  pointer-events: none;
-  overflow: hidden;
-}
+    /* Container for background photo cover */
+    .hero-photo.right-bg-photo {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      max-width: none;
+      z-index: 0;
+      pointer-events: none;
+      overflow: hidden;
+    }
 
-/* Full-bleed background image styling */
-.right-bg-photo img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover;
-  border-radius: 0;
-  opacity: 0.18; /* Subtle visibility overlay */
-  filter: grayscale(30%) contrast(1.1) brightness(0.7);
-  mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 90%);
-  -webkit-mask-image: radial-gradient(circle at center, rgba(0,0,0,1) 30%, rgba(0,0,0,0) 90%);
-}
+    /* Full-bleed background image - No fade, clean display */
+    .right-bg-photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border-radius: 0;
+      opacity: 1;
+      filter: none;
+      mask-image: none;
+      -webkit-mask-image: none;
+    }
 
-    /* Bottom Left - Childhood Pic (Polaroid Style) */
-.left-child-photo {
-  position: absolute; /* Restores absolute positioning to bottom-left */
-  bottom: 40px;
-  left: 40px;
-  width: 160px;
-  transform: rotate(-12deg);
-  background: #fff;
-  padding: 8px 8px 25px 8px; /* Polaroid border */
-  box-shadow: 0 15px 35px rgba(0,0,0,0.6);
-  border-radius: 4px;
-  opacity: 0.85;
-  transition: transform 0.4s ease;
-  z-index: 2; /* Keeps the polaroid layered above the background fade */
-}
+    /* Positioned between bottom-left and bottom-center */
+    .left-child-photo {
+      position: absolute;
+      bottom: 40px;
+      left: 22%;
+      transform: translateX(-50%) rotate(-12deg);
+      width: 160px;
+      background: #fff;
+      padding: 8px 8px 25px 8px; /* Polaroid border */
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      border-radius: 4px;
+      opacity: 1;
+      transition: transform 0.4s ease;
+      z-index: 2;
+    }
     .left-child-photo img {
       width: 100%;
       height: auto;
@@ -125,10 +125,7 @@
       .left-child-photo {
         width: 110px;
         bottom: 20px;
-        left: 10px;
-      }
-      .right-bg-photo {
-        width: 60%;
+        left: 20%;
       }
     }
 
@@ -143,6 +140,7 @@
       font-size: 2.2rem;
       color: var(--accent);
       margin-bottom: 10px;
+      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
     }
 
     .main-title {
@@ -153,14 +151,16 @@
       background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
     }
 
     .from-tag {
       font-size: 1.1rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: var(--text-muted);
+      color: #e0e0e0;
       margin-bottom: 40px;
+      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
     }
 
     .cta-btn {
@@ -363,14 +363,12 @@
   <!-- Hero Section -->
   <section id="hero">
     
-    <!-- BACKGROUND PHOTOS (Replace src with your image file names) -->
+    <!-- BACKGROUND PHOTOS -->
     <div class="hero-photo right-bg-photo">
-      <!-- Put your background photo name here -->
       <img src="YOUR_RECENT_PHOTO.jpg" alt="Background Fade" />
     </div>
     
     <div class="hero-photo left-child-photo">
-      <!-- Put your childhood photo name here -->
       <img src="YOUR_CHILDHOOD_PHOTO.jpg" alt="Childhood Pic" />
     </div>
 
@@ -434,7 +432,7 @@
       <div class="letter-box">
         <p>Dear Durgadevi ❤️,</p>
         <p>On your special day, I wanted to create something unique just to bring a smile to your face. Hope this year brings you new opportunities, incredible growth, and pure joy every single day.</p>
-        <p>Have the happiest birthday celebration! - Our Future IAS  </p>
+        <p>Have the happiest birthday celebration! - Our Future IAS</p>
         <div class="letter-sign">- Durai</div>
       </div>
     </section>
