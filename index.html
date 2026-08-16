@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Happy Birthday MS Durgadevi!</title>
+  <title>Happy Birthday M S Durgadevi ❤️</title>
   
   <!-- Google Fonts & Font Awesome -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -71,6 +71,68 @@
     /* Hero / Surprise Section */
     #hero {
       text-align: center;
+      position: relative;
+    }
+
+    /* Background Photos in Hero */
+    .hero-photo {
+      position: absolute;
+      z-index: -1;
+      pointer-events: none; /* Prevents blocking button clicks */
+    }
+
+    /* Bottom Right - Faded Image */
+    .right-bg-photo {
+      bottom: -40px;
+      right: -20px;
+      width: 45%;
+      max-width: 400px;
+      opacity: 0.3; /* Mild fadeout effect */
+      -webkit-mask-image: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+      mask-image: linear-gradient(to top left, rgba(0,0,0,1) 0%, rgba(0,0,0,0) 80%);
+    }
+    .right-bg-photo img {
+      width: 100%;
+      height: auto;
+      border-radius: 20px;
+      filter: sepia(30%) brightness(0.8);
+    }
+
+    /* Bottom Left - Childhood Pic (Polaroid Style) */
+    .left-child-photo {
+      bottom: 40px;
+      left: 40px;
+      width: 160px;
+      transform: rotate(-12deg);
+      background: #fff;
+      padding: 8px 8px 25px 8px; /* Polaroid border */
+      box-shadow: 0 15px 35px rgba(0,0,0,0.6);
+      border-radius: 4px;
+      opacity: 0.85;
+      transition: transform 0.4s ease;
+    }
+    .left-child-photo img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    /* Mobile adjustments for photos */
+    @media (max-width: 768px) {
+      .left-child-photo {
+        width: 110px;
+        bottom: 20px;
+        left: 10px;
+      }
+      .right-bg-photo {
+        width: 60%;
+      }
+    }
+
+    /* Text styling to stay above photos */
+    .subtitle, .main-title, .from-tag, .cta-btn {
+      position: relative;
+      z-index: 2;
     }
 
     .subtitle {
@@ -137,6 +199,7 @@
     .cake-container {
       text-align: center;
       margin-bottom: 100px;
+      position: relative;
     }
 
     .cake {
@@ -181,6 +244,31 @@
     @keyframes flicker {
       0% { transform: translateX(-50%) scale(1); }
       100% { transform: translateX(-50%) scale(1.1); }
+    }
+
+    /* Scroll Down Indicator (Hidden until candle is blown) */
+    .scroll-indicator {
+      margin-top: 40px;
+      opacity: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      color: var(--accent);
+      font-weight: 600;
+      transition: opacity 0.8s ease;
+      pointer-events: none;
+    }
+
+    .scroll-indicator i {
+      margin-top: 10px;
+      font-size: 1.5rem;
+      animation: bounce 1.5s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(-10px); }
+      60% { transform: translateY(-5px); }
     }
 
     /* Memory Envelopes Grid */
@@ -271,8 +359,20 @@
 
   <!-- Hero Section -->
   <section id="hero">
+    
+    <!-- BACKGROUND PHOTOS (Replace src with your image file names) -->
+    <div class="hero-photo right-bg-photo">
+      <!-- Put your background photo name here -->
+      <img src="YOUR_RECENT_PHOTO.jpg" alt="Background Fade" />
+    </div>
+    
+    <div class="hero-photo left-child-photo">
+      <!-- Put your childhood photo name here -->
+      <img src="YOUR_CHILDHOOD_PHOTO.jpg" alt="Childhood Pic" />
+    </div>
+
     <div class="subtitle">A Special Birthday Wish For</div>
-    <h1 class="main-title">MS DurgaDevi</h1>
+    <h1 class="main-title">M S Durgadevi ❤️</h1>
     <div class="from-tag">Crafted with care by Durai</div>
     <button class="cta-btn" onclick="unwrapSurprise()">Unwrap Surprise <i class="fa-solid fa-gift"></i></button>
   </section>
@@ -293,6 +393,13 @@
         <p id="wish-status" style="margin-top: 20px; color: var(--accent); font-weight: 600; opacity: 0; transition: opacity 0.5s;">
           ✨ May all your dreams come true this year! ✨
         </p>
+        
+        <!-- Scroll Indicator fades in after candle is blown -->
+        <div id="scroll-indicator" class="scroll-indicator">
+          <span>Scroll down for a surprise</span>
+          <i class="fa-solid fa-chevron-down"></i>
+        </div>
+
       </div>
     </section>
 
@@ -322,7 +429,7 @@
     <section>
       <h2 class="section-title">A Special Note</h2>
       <div class="letter-box">
-        <p>Dear Durgadevi,</p>
+        <p>Dear M S Durgadevi ❤️,</p>
         <p>On your special day, I wanted to create something unique just to bring a smile to your face. Hope this year brings you new opportunities, incredible growth, and pure joy every single day.</p>
         <p>Have the happiest birthday celebration!</p>
         <div class="letter-sign">- Durai</div>
@@ -377,10 +484,14 @@
     function blowCandle() {
       const flame = document.getElementById('flame');
       const wishStatus = document.getElementById('wish-status');
+      const scrollIndicator = document.getElementById('scroll-indicator');
       
       if (!flame.classList.contains('off')) {
         flame.classList.add('off');
         wishStatus.style.opacity = '1';
+        
+        // Show scroll down indicator
+        scrollIndicator.style.opacity = '1';
         
         // Gentle celebratory confetti
         confetti({
