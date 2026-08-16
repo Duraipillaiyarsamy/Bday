@@ -87,7 +87,7 @@
       overflow: hidden;
     }
 
-    /* Full-bleed background image - No fade, clean display */
+    /* Full-bleed background image styling (No Fade) */
     .right-bg-photo img {
       width: 100%;
       height: 100%;
@@ -95,25 +95,24 @@
       border-radius: 0;
       opacity: 1;
       filter: none;
-      mask-image: none;
-      -webkit-mask-image: none;
     }
 
-    /* Positioned between bottom-left and bottom-center */
+    /* Positioned between bottom-left and bottom-center (Polaroid Style) */
     .left-child-photo {
       position: absolute;
       bottom: 40px;
-      left: 22%;
-      transform: translateX(-50%) rotate(-12deg);
+      left: 20%; /* Moved inward towards the center */
       width: 160px;
+      transform: rotate(-12deg);
       background: #fff;
       padding: 8px 8px 25px 8px; /* Polaroid border */
       box-shadow: 0 15px 35px rgba(0,0,0,0.6);
       border-radius: 4px;
-      opacity: 1;
+      opacity: 0.95;
       transition: transform 0.4s ease;
       z-index: 2;
     }
+
     .left-child-photo img {
       width: 100%;
       height: auto;
@@ -125,14 +124,14 @@
       .left-child-photo {
         width: 110px;
         bottom: 20px;
-        left: 20%;
+        left: 10%;
       }
     }
 
     /* Text styling to stay above photos */
     .subtitle, .main-title, .from-tag, .cta-btn {
       position: relative;
-      z-index: 2;
+      z-index: 3;
     }
 
     .subtitle {
@@ -140,7 +139,7 @@
       font-size: 2.2rem;
       color: var(--accent);
       margin-bottom: 10px;
-      text-shadow: 0 2px 8px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
 
     .main-title {
@@ -151,16 +150,16 @@
       background: linear-gradient(135deg, #ffffff 0%, var(--accent) 100%);
       -webkit-background-clip: text;
       -webkit-text-fill-color: transparent;
-      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.8));
+      filter: drop-shadow(0 4px 12px rgba(0,0,0,0.9));
     }
 
     .from-tag {
       font-size: 1.1rem;
       letter-spacing: 4px;
       text-transform: uppercase;
-      color: #e0e0e0;
+      color: var(--text-main);
       margin-bottom: 40px;
-      text-shadow: 0 2px 6px rgba(0,0,0,0.8);
+      text-shadow: 0 2px 10px rgba(0,0,0,0.8);
     }
 
     .cta-btn {
@@ -363,12 +362,14 @@
   <!-- Hero Section -->
   <section id="hero">
     
-    <!-- BACKGROUND PHOTOS -->
+    <!-- BACKGROUND PHOTOS (Replace src with your image file names) -->
     <div class="hero-photo right-bg-photo">
-      <img src="YOUR_RECENT_PHOTO.jpg" alt="Background Fade" />
+      <!-- Put your background photo name here -->
+      <img src="YOUR_RECENT_PHOTO.jpg" alt="Background Photo" />
     </div>
     
     <div class="hero-photo left-child-photo">
+      <!-- Put your childhood photo name here -->
       <img src="YOUR_CHILDHOOD_PHOTO.jpg" alt="Childhood Pic" />
     </div>
 
@@ -432,7 +433,7 @@
       <div class="letter-box">
         <p>Dear Durgadevi ❤️,</p>
         <p>On your special day, I wanted to create something unique just to bring a smile to your face. Hope this year brings you new opportunities, incredible growth, and pure joy every single day.</p>
-        <p>Have the happiest birthday celebration! - Our Future IAS</p>
+        <p>Have the happiest birthday celebration! - Our Future IAS  </p>
         <div class="letter-sign">- Durai</div>
       </div>
     </section>
